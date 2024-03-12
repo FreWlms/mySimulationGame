@@ -1,0 +1,2 @@
+This repository contains source code for iteration 1 of the Simlife project.
+For the assignment text, refer to [[https://gitlab.kuleuven.be/distrinet/education/ogp/projects/2023-2024/assignments/text/-/blob/main/iter1.org][this repository]].
