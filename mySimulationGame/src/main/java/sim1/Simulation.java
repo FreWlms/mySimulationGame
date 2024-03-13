@@ -32,15 +32,7 @@ public class Simulation {
     	this.populationSize = populationSize;
     	this.world = createRandWorldWith(size, populationSize, numA, populationSize-numA, Chromosome.createRandom(numA));
     }
-    
-    public void runIteration() {
-    	System.out.println("Nu eerste keer in while loop.");
-    	System.out.println(world.iterationFinished);
-    	while (!world.iterationFinished){
-    		System.out.println("Eerste keer step methode uitvoeren.");
-    		world.step();
-    	}
-    }
+
 
 
     public int getPopulationSize() {
@@ -73,12 +65,12 @@ public class Simulation {
     		
     		Orientation orientation = Orientation.createRandom();
     		
-    		int chromIndex = RandomUtil.integer(chromsA.length);
-    		Chromosome chrom = chromsA[chromIndex];
+    		Chromosome chrom = chromsA[i];
     		
     		populationA[i] = new CreatureA(behaviorA, randomPointInSquare, orientation, chrom);	
+    		
     	}
-    	
+
     	CreatureB[] populationB = new CreatureB[numB];
     	for (int i = 0; i <  numB; i++) {
     		int x = RandomUtil.integer(size/4, size-size/4);
@@ -163,7 +155,10 @@ public class Simulation {
     	
     		this.world = new World(world.getWidth(), world.getHeight(), nextGenA, nextGenB);
     		
-    		System.out.println("Ik ga nu iteration runnen.");
+    		System.out.println("Ik ga nu next generation iteration runnen.");
+    		
+    		world.step();
+
  
     	
     }

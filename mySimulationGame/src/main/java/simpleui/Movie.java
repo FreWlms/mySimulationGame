@@ -90,10 +90,11 @@ public class Movie extends JComponent {
     {
         long elapsedNanoseconds = this.chronometer.elapsedNanoseconds();
 
-        var elapsedSinceLastUpdate = timer.update(elapsedNanoseconds);
-        if ( elapsedSinceLastUpdate.isPresent() )
+         var elapsedSinceLastUpdate = timer.update(elapsedNanoseconds);
+         if ( elapsedSinceLastUpdate.isPresent() )
         {
-        	this.renderCreatures();
+        	sim.getWorld().step();
+         	this.renderCreatures();
         }
         else
         {

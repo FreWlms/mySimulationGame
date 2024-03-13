@@ -20,8 +20,6 @@ public class MainSim1
     	//- Besides, 1 simulation unit = 2 pixels (swing)
 
     	Simulation sim = new Simulation(Constants.WSIZE, Constants.POPU_SIZE, Constants.INIT_CREAT_A);
-    	System.out.println("Simulation aan gemaakt.");
     	SimLifeWindow.create("Iteration 1", Constants.WSIZE, Constants.WSIZE, sim);
-        
-    }
+        }
 }

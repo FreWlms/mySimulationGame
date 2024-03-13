@@ -1,14 +1,15 @@
 package sim1;
 
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 import util.Point;
 
 public class World
 {
-	protected boolean iterationFinished = false;
     private final int width;
     private final int height;
+//	protected boolean iterationFinished = false;
 
     /**
      * @representationObject
@@ -68,13 +69,17 @@ public class World
     	int x = pos.getX();
     	int y = pos.getY();
     	
-    	if (!isInside(pos))
-    		return false;
+    	System.out.println(pos);
+    	System.out.println(isInside(pos));
     	
-    	if (x == 1 || x == width -1 || y == 1 || y == height -1)
-    		return true;
+    	if (isInside(pos)) {
+    		if (x == 2 || x == width -2 || y == 2 || y == height -2)
+    			return true;
+    		else
+    			return false;}
     	else
-    		return false;
+    		return true;
+    	
     }
 
     
@@ -130,25 +135,20 @@ public class World
      */
     public void step()
     {	
-    	System.out.println("Zit nu in step methode.");
-    	System.out.println(iterationFinished);
+ //   	System.out.println(iterationFinished);
     	
-    	this.iterationFinished = true;
+ //   	this.iterationFinished = true;
     	for (int i = 0 ; i < populationB.length ; i ++) {
-    		System.out.println("In eerste iteratie B.");
         	if (!this.isLimPos(populationB[i].getPosition()))
-        		System.out.println("If 1 geslaagd.");
         		populationB[i].performAction(this);
-        		iterationFinished = false;
+ //       		iterationFinished = false;
         	}
     	
         for (int i = 0 ; i < populationA.length ; i ++) {
-        	System.out.println("In tweede iteratie A.");
         	if (!this.isLimPos(populationA[i].getPosition()))
-        		System.out.println("If 2 geslaagd.");
         		populationA[i].performAction(this);
-        		iterationFinished = false;
-        	}
+ //      		iterationFinished = false;
+        }
     }
     
 
